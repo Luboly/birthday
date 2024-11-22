@@ -26,7 +26,7 @@ h1, h2, span {
     cursor: crosshair;
     perspective: 1000px;
     transform-style: preserve-3d;
-    font-family: "Noto Sans SC",cursive;
+    font-family: "Pacifico",cursive;
   }
 
   h1 {
