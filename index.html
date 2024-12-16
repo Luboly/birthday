@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To 娜娜</title>
+    <title>AE-圣诞树</title>
     <style>
         html, body {
             margin: 0;
@@ -25,20 +25,43 @@
         .hidden {
             display: none;
         }
+        #fullscreen-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div id="main">
+        <button id="fullscreen-button">全屏</button>
         <video id="video1" muted="muted" autoplay="autoplay" loop="loop">
             <source src="https://tianfeng.space/wp-content/uploads/2022/12/圣诞树1.mp4" type="video/mp4">
         </video>
     </div>
     <script type="text/javascript">
-        $(function(){
+        document.addEventListener('DOMContentLoaded', function() {
             var video = document.getElementById("video1");
+            var fullscreenButton = document.getElementById("fullscreen-button");
+
+            fullscreenButton.addEventListener('click', function() {
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { /* Safari */
+                    video.webkitRequestFullscreen();
+                } else if (video.mozRequestFullScreen) { /* Firefox */
+                    video.mozRequestFullScreen();
+                } else if (video.msRequestFullscreen) { /* IE/Edge */
+                    video.msRequestFullscreen();
+                }
+            });
+
             video.src = "https://tianfeng.space/wp-content/uploads/2022/12/圣诞树1.mp4";
             video.play();
-            video.requestFullscreen(); // 请求全屏
         });
     </script>
 </body>
